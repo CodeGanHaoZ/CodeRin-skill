@@ -43,7 +43,8 @@ def scan_file(path):
     content = path.read_text(encoding='utf-8')
     clean = strip_code(content)
 
-    bolds = re.findall(r'\*\*([^*]+)\*\*', clean)
+    # 限制不跨行：Markdown 表格中相邻行的 ** 会被误配对，跨行匹配会产生大量误报
+    bolds = re.findall(r'\*\*([^*\n]+)\*\*', clean)
     bad = [b for b in bolds if any(ch in b for ch in DANGER)]
     strongs = re.findall(r'<strong>([^<]+)</strong>', clean)
 

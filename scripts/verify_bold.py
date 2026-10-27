@@ -53,15 +53,16 @@ def scan_file(path):
     """扫描单个文件。返回 (加粗总数, 正文危险项, 代码块内危险项, strong 标签数)。"""
     content = path.read_text(encoding='utf-8')
 
-    bolds = re.findall(r'\*\*([^*]+)\*\*', content)
+    # 限制不跨行：Markdown 表格中相邻行的 ** 会被误配对，跨行匹配会产生大量误报
+    bolds = re.findall(r'\*\*([^*\n]+)\*\*', content)
     strongs = re.findall(r'<strong>([^<]+)</strong>', content)
 
     # 正文（会被渲染的部分）
-    prose_bolds = re.findall(r'\*\*([^*]+)\*\*', strip_code(content))
+    prose_bolds = re.findall(r'\*\*([^*\n]+)\*\*', strip_code(content))
     prose_bad = [b for b in prose_bolds if any(ch in b for ch in DANGER)]
 
     # 代码块内（教学用的反面示例，不参与渲染）
-    code_bad = [b for b in re.findall(r'\*\*([^*]+)\*\*', code_only(content))
+    code_bad = [b for b in re.findall(r'\*\*([^*\n]+)\*\*', code_only(content))
                 if any(ch in b for ch in DANGER)]
 
     return len(bolds), prose_bad, code_bad, len(strongs)
