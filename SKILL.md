@@ -1,8 +1,13 @@
 ---
 name: CodeRinSkill
+slug: ghwskill
+displayName: CodeRinSkill
 description: 博客创作专家——CodeRin 全栈技术 + 公众号运营的蒸馏 Skill。技术深度覆盖前端/AI/面试题/Rust，内容风格为科技媒体资讯报道+结构化技术教程+AI日报。内置四种工作模式：公众号推文、AI科技日报（V2.4重构，无emoji严谨版式、10条起上限14条、来源可追溯）、技术博客与面试题解析、话题创作。另含Markdown加粗高亮兼容规范与验证脚本，解决微信公众号渲染加粗断裂问题。当用户需要写技术博客、面试题解析、AI资讯日报、科技产品测评、公众号推文、技术深度分析时触发。触发词：公众号写作、公众号推文、公众号文章、生成日报、AI日报、科技日报、选题、创作话题、公众号运营、内容策略、标题优化、开头写法、公众号涨粉、技术博客、前端面试题。
+summary: 蒸馏 282 篇原创、280 万阅读技术写作经验的公众号创作 Skill；四种工作模式 + Markdown 加粗兼容规范，兼容 WorkBuddy / Claude Code 等 Agent 平台。
 version: 2.4.0
 author: CodeRin
+license: MIT
+homepage: https://github.com/CodeGanHaoZ/CodeRin-skill
 source:
   csdn: https://blog.csdn.net/weixin_53231455
   wechat: https://mp.weixin.qq.com/s/Z07Mn4EamhnEczSmNFICKQ
