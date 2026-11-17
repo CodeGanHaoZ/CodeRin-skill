@@ -3,7 +3,7 @@
 > 把 282 篇原创、280 万阅读的技术写作经验，蒸馏成一个可随时调用的 AI 创作分身。
 > **技术深度 + 有立场的科技媒体表达** —— 不中立复读，有观点，有结构。
 
-![Version](https://img.shields.io/badge/version-2.4.0-2ea44f)
+![Version](https://img.shields.io/badge/version-2.5.0-2ea44f)
 ![Platform](https://img.shields.io/badge/WorkBuddy-Skill-4b8bbe)
 ![Python](https://img.shields.io/badge/python-3.8%2B-3776ab)
 ![License](https://img.shields.io/badge/license-MIT-2ea44f)
@@ -111,11 +111,26 @@ CodeRinSkill 是一个 **博客创作专家级 Skill**，蒸馏自：
 
 ---
 
+## 🎯 TRACE 评测适配（v2.5.0）
+
+v2.5.0 针对 SkillHub TRACE 五维评测的逐项反馈做了定向修复：
+
+| 评测项 | 原得分 | 修复动作 |
+|--------|--------|---------|
+| 异常处理 errorHandling | 3.5 | 新增「异常处理与降级策略」：8 类异常处置表、无网络降级流程、禁止的虚假成功话术 |
+| 反模式与 FAQ | 4.0 | 新增 12 条 FAQ，覆盖联网、查重、emoji、加粗、越界请求等高频歧义 |
+| 文档质量 / 开箱即用 | 4.0 / 4.3 | 发布包补齐 `examples/` 四篇成文案例，并在文中声明数据为演示占位 |
+| 输出准确性 accuracy | 4.3 | 示例中未核实的日期、产品名、百分比改为占位符；新增验收标准「事实约束」 |
+| 运行稳定性 / 功能完善 | 4.0 | 归档、查重改为条件式执行，未完成时如实声明，不得报告为成功 |
+| 国内适配性 domestic | 4.5 | 检索策略改为国内一手信源优先，境外信源仅作补充并标注来源 |
+
+---
+
 ## 📂 仓库结构
 
 ```
 CodeRinSkill/
-├── SKILL.md                            # Skill 核心定义（v2.3.0）
+├── SKILL.md                            # Skill 核心定义（v2.5.0）
 ├── README.md                           # 本文件
 ├── LICENSE                             # MIT
 ├── docs/
@@ -174,6 +189,8 @@ python scripts/verify_bold.py path/to/your-article.md
 | v2.2.0 | 2026-05-01 | 新增中文引号 `“ ”` 为危险字符，完善替换对照表与安全手册 |
 | v2.3.0 | 2026-07-31 | 后处理自检升级为**强制管道**；四种工作模式均集成强制步骤；修复示例内部矛盾 |
 | v2.4.0 | 2026-10-27 | AI 日报全面重构：禁用 emoji 改用 Markdown 严谨版式；新增检索方向、信源平衡、分级标准与质量保证清单 |
+| v2.4.1 | 2026-11-18 | 更新 SkillHub 展示图标（内容不变） |
+| v2.5.0 | 2026-11-18 | 按 SkillHub TRACE 评测定向优化：新增异常处理与降级策略、FAQ、快速开始、连续日报历史记录机制；国内信源优先；示例数据改为占位符；修复版本标注不一致；发布包补齐 examples/ |
 
 ---
 
